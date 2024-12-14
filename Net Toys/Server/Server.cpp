@@ -140,7 +140,7 @@ auto Server::Receive() const -> void {
     // Loop to receive messages
     while (this->clientSocket > 0) {
         // Create a buffer to hold the incoming message
-        char buffer[this->bufferSize] = {};
+        char buffer[this->bufferSize];
 
         // Receive the message
         if (const int receiveResults = recv(this->clientSocket, buffer, this->bufferSize, 0); receiveResults < 0) {

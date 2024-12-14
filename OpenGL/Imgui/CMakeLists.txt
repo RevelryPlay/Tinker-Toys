@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.30)
 project(
-        OpenGL-UI-Basics
+        OpenGLImgui
         VERSION 0.0.1
-        DESCRIPTION "OpenGL UI Basics"
+        DESCRIPTION "OpenGL Basics with ImGUI"
         LANGUAGES CXX C
 )
 
@@ -11,21 +11,18 @@ if (NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif ()
 
-add_executable(OpenGL-UI-Basics
-        src/Window.cpp src/Window.hpp
-        main.cpp)
-
-## Add ArgoDraft library
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+add_executable(OpenGLImgui main.cpp)
 
 # Set cmake output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-add_library(ArgoDraft STATIC IMPORTED
-        src/Window.cpp
-        src/Window.h)
+## Add ArgoDraft library
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+
+add_library(ArgoDraft STATIC IMPORTED)
 #if (WIN32)
 #    set_property(TARGET ArgoDraft PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/ArgoDraft.lib)
 #endif ()
@@ -37,8 +34,8 @@ set_property(TARGET ArgoDraft PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ArgoDraft)
-## End of ArgoDraft library
 
+## End of ArgoDraft library
 
 ## Add OpenGL libraries
 find_package(OpenGL REQUIRED)

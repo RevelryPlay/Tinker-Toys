@@ -25,7 +25,7 @@ add_library(ArgoDraft STATIC IMPORTED)
     set_property(TARGET ArgoDraft PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/libArgoDraft.a)
 #endif ()
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} PUBLIC wsock32 ws2_32)
