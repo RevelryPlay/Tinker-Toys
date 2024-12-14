@@ -82,9 +82,3 @@ $RECYCLE.BIN/
 .TemporaryItems
 ehthumbs.db
 Thumbs.db
-
-# Argo Libraries
-!libArgoDraft.a
-!libArgoDraft.so
-!libArgoDraft.dll
-!libArgoDraft.lib
