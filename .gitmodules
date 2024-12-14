@@ -1,0 +1,3 @@
+[submodule "ArgoDraft"]
+	path = ArgoDraft
+	url = git@github.com:RevelryPlay/ArgoDraft.git
