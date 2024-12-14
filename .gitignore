@@ -82,3 +82,6 @@ $RECYCLE.BIN/
 .TemporaryItems
 ehthumbs.db
 Thumbs.db
+
+# Ignore ArgoDraft library Includes
+include/ArgoDraft/
