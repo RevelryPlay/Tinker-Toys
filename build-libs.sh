@@ -5,7 +5,6 @@
 projectDirectories=("NetToys" "OpenGL/Imgui" "OpenGL/UI-Basics" "Threaded")
 isRelease=false
 
-  echo "Building on Windows"
   cd ArgoDraft || exit
   
   # Build the project in the ArgoDraft directory to a ArgoDraft/build/debug and ArgoDraft/build/release directory
@@ -56,6 +55,7 @@ isRelease=false
   do
       echo "Removing existing files in $projectDirectory"
       rm -rf "../$projectDirectory/lib/ArgoDraft.*" || true
+      rm -rf "../$projectDirectory/lib/libArgoDraft.*" || true
       rm -rf "../$projectDirectory/include/ArgoDraft" || true
   done
   
@@ -86,8 +86,8 @@ isRelease=false
         if [ -d "build/release/Release" ]; then
           cp -r build/release/Release/ArgoDraft.* "../$projectDirectory/lib/" || true
         else
-          cp -r "build/release/ArgoDraft.*" "../$projectDirectory/lib/" || true
-          cp -r "build/release/libArgoDraft.*" "../$projectDirectory/lib/" || true
+          cp -r build/release/ArgoDraft.* "../$projectDirectory/lib/" || true
+          cp -r build/release/libArgoDraft.* "../$projectDirectory/lib/" || true
         fi
       else
         echo "Copying debug files"
@@ -96,8 +96,8 @@ isRelease=false
         if [ -d "build/debug/Debug" ]; then
           cp -r build/debug/Debug/ArgoDraft.* "../$projectDirectory/lib/" || true
         else
-          cp -r "build/debug/ArgoDraft.*" "../$projectDirectory/lib/" || true
-          cp -r "build/debug/libArgoDraft.*" "../$projectDirectory/lib/" || true
+          cp -r build/debug/ArgoDraft.* "../$projectDirectory/lib/" || true
+          cp -r build/debug/libArgoDraft.* "../$projectDirectory/lib/" || true
         fi
       fi
       
