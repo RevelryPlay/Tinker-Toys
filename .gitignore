@@ -22,6 +22,11 @@
 *.a
 *.lib
 
+# Compiled Library Symbols
+*.sym
+*.def
+*.pdb
+
 # Executables
 *.exe
 *.out
