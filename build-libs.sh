@@ -1,6 +1,6 @@
 # Use cmake to build the project in the ArgoDraft directory
-# copy the output .a, .so, and .lib files to the lib directory of the Net Toys, OpenGL/Imgui, OpenGL/UI-Basics, and Threaded directories
-# copy the files in ArgoDraft/include directory to the Net Toys, OpenGL/Imgui, OpenGL/UI-Basics, and Threaded include/ArgoDraft directories
+# copy the output compiled library (.a, .so, .dll, .dylib, etc) files to the lib directory of the project directories
+# copy the files in ArgoDraft/include directory to the project directories
 
 projectDirectories=("NetToys" "OpenGL/Imgui" "OpenGL/UI-Basics" "Threaded")
 isRelease=false
@@ -50,7 +50,7 @@ isRelease=false
     cmake --build build/debug
   fi
   
-  # Remove the existing ArgoDraft lib files and include/ArgoDraft directories in the project directories
+  # Remove the existing ArgoDraft lib files and include/ArgoDraft directory in each project directory
   for projectDirectory in "${projectDirectories[@]}"
   do
       echo "Removing existing files in $projectDirectory"
@@ -59,7 +59,7 @@ isRelease=false
       rm -rf "../$projectDirectory/include/ArgoDraft" || true
   done
   
-  # Create the include/ArgoDraft directories in the project directories
+  # Create the include/ArgoDraft directory in each project
   for projectDirectory in "${projectDirectories[@]}"
   do
       echo "Creating include directories in $projectDirectory"
@@ -67,14 +67,14 @@ isRelease=false
       mkdir "../$projectDirectory/include/ArgoDraft" || true
   done
   
-  # Create the lib directories in the project directories
+  # Create the lib directory in each project
   for projectDirectory in "${projectDirectories[@]}"
   do
       echo "Creating lib directory in $projectDirectory"
       mkdir "../$projectDirectory/lib" || true
   done
   
-  # Copy the ArgoDraft lib files and include/ArgoDraft directories to the project directories
+  # Copy the ArgoDraft lib files and include/ArgoDraft directory to the each project
   for projectDirectory in "${projectDirectories[@]}"
   do
       echo "Copying lib files to $projectDirectory"
