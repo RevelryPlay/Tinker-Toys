@@ -11,7 +11,7 @@ if (NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif ()
 
-add_executable(OpenGLImgui main.cpp)
+add_executable(OpenGLImgui main.cpp src/imguiRenderer.cpp)
 
 # Set cmake output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -56,4 +56,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE glm::glm)
 
 find_package(Stb REQUIRED)
 target_include_directories(${PROJECT_NAME} PRIVATE ${Stb_INCLUDE_DIR})
+
+find_package(imgui CONFIG REQUIRED)
+target_include_directories(${PROJECT_NAME} PRIVATE ${IMGUI_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PRIVATE imgui::imgui)
 ## End of OpenGL libraries
