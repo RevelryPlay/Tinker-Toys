@@ -1,6 +1,6 @@
 #include "ThreadPool.hpp"
 
-ThreadPool::ThreadPool(const size_t numThreads = thread::hardware_concurrency()) {
+ThreadPool::ThreadPool(const size_t numThreads) {
     // Create worker threads
     for (size_t i = 0; i < numThreads; i++) {
         threads_.emplace_back([this] {
@@ -46,7 +46,7 @@ ThreadPool::~ThreadPool() { {
 }
 
 // Enqueue a task to the thread pool
-void ThreadPool::Enqueue(std::function<void()> task) { {
+void ThreadPool::Enqueue(const std::function<void()>& task) { {
         unique_lock<mutex> lock(queue_mutex_);
         tasks_.push(task);
     }

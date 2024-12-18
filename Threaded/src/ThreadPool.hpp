@@ -10,10 +10,10 @@ using namespace std;
 
 class ThreadPool {
 public:
-    ThreadPool(size_t numThreads);
+    explicit ThreadPool(size_t numThreads = thread::hardware_concurrency());
     ~ThreadPool();
 
-    void Enqueue(std::function<void()> task);
+    void Enqueue(const std::function<void()>& task);
 
 private:
     // Vector to store worker threads
