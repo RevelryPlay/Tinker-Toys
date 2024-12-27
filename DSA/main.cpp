@@ -3,6 +3,8 @@
 #include <ArgoDraft/ConsoleMenu.hpp>
 #include <ArgoDraft/ArgoLogger.hpp>
 
+#include "src/Sorting.hpp"
+
 int main() {
     std::cout << "Type `help` for a list of commands" << std::endl;
     // Submenus algorithms and structures
@@ -386,22 +388,36 @@ int main() {
         algorithmsSubMenu.AddAction({
             "Bubble Sort", "Sorts an array using the Bubble Sort algorithm",
             []() {
-                std::cout << "Bubble" << std::endl;
-            }, { "bubble", "Bubble", "bubblesort", "BubbleSort" }
+                const Sorting sorting;
+                sorting.bubbleSort();
+            },
+            {"bubble", "Bubble", "bubblesort", "BubbleSort"}
         });
 
         algorithmsSubMenu.AddAction({
             "Selection Sort", "Sorts an array using the Selection Sort algorithm",
             []() {
-                std::cout << "Selection" << std::endl;
-            }, { "selection", "Selection", "selectionsort", "SelectionSort" }
+                const Sorting sorting;
+                sorting.selectionSort();
+            },
+            {"selection", "Selection", "selectionsort", "SelectionSort"}
         });
+
+        algorithmsSubMenu.AddAction({
+            "Insertion Sort", "Sorts an array using the Insertion Sort algorithm",
+            []() {
+                const Sorting sorting;
+                sorting.insertionSort();
+            },
+            {"insertion", "Insertion", "insertionsort", "InsertionSort"}
+        });
+
+        
 
         menu.AddMenu(algorithmsSubMenu);
         menu.AddMenu(structuresSubMenu);
 
         menu.Init();
-        
     } catch (const std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }

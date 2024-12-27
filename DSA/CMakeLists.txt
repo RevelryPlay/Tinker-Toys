@@ -11,7 +11,9 @@ if (NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif ()
 
-add_executable(DSA main.cpp)
+add_executable(DSA main.cpp
+        src/Sorting.cpp
+        src/Sorting.hpp)
 
 # Set cmake output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
