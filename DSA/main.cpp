@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include <ArgoDraft/ConsoleMenu.hpp>
 #include <ArgoDraft/ArgoLogger.hpp>
+#include <ArgoDraft/ConsoleMenu.hpp>
 
 #include "src/Sorting.hpp"
 
-int main() {
+int main( ) {
     std::cout << "Type `help` for a list of commands" << std::endl;
     // Submenus algorithms and structures
     // Items under algorithms
@@ -382,44 +382,40 @@ int main() {
 
     try {
         ArgoDraft::MainMenu menu;
-        ArgoDraft::Menu algorithmsSubMenu("algorithms", "Examples of various algorithms");
-        ArgoDraft::Menu structuresSubMenu("structures", "Examples of various data structures");
+        ArgoDraft::Menu     algorithmsSubMenu( "algorithms", "Examples of various algorithms" );
+        ArgoDraft::Menu     structuresSubMenu( "structures", "Examples of various data structures" );
 
-        algorithmsSubMenu.AddAction({
-            "Bubble Sort", "Sorts an array using the Bubble Sort algorithm",
-            []() {
-                const Sorting sorting;
-                sorting.bubbleSort();
-            },
-            {"bubble", "Bubble", "bubblesort", "BubbleSort"}
-        });
+        algorithmsSubMenu.AddAction( { "Bubble Sort",
+                                       "Sorts an array using the Bubble Sort algorithm",
+                                       []( ) {
+                                           const Sorting sorting;
+                                           sorting.bubbleSort( );
+                                       },
+                                       { "bubble", "Bubble", "bubblesort", "BubbleSort" } } );
 
-        algorithmsSubMenu.AddAction({
-            "Selection Sort", "Sorts an array using the Selection Sort algorithm",
-            []() {
-                const Sorting sorting;
-                sorting.selectionSort();
-            },
-            {"selection", "Selection", "selectionsort", "SelectionSort"}
-        });
+        algorithmsSubMenu.AddAction( { "Selection Sort",
+                                       "Sorts an array using the Selection Sort algorithm",
+                                       []( ) {
+                                           const Sorting sorting;
+                                           sorting.selectionSort( );
+                                       },
+                                       { "selection", "Selection", "selectionsort", "SelectionSort" } } );
 
-        algorithmsSubMenu.AddAction({
-            "Insertion Sort", "Sorts an array using the Insertion Sort algorithm",
-            []() {
-                const Sorting sorting;
-                sorting.insertionSort();
-            },
-            {"insertion", "Insertion", "insertionsort", "InsertionSort"}
-        });
+        algorithmsSubMenu.AddAction( { "Insertion Sort",
+                                       "Sorts an array using the Insertion Sort algorithm",
+                                       []( ) {
+                                           const Sorting sorting;
+                                           sorting.insertionSort( );
+                                       },
+                                       { "insertion", "Insertion", "insertionsort", "InsertionSort" } } );
 
-        
 
-        menu.AddMenu(algorithmsSubMenu);
-        menu.AddMenu(structuresSubMenu);
+        menu.AddMenu( algorithmsSubMenu );
+        menu.AddMenu( structuresSubMenu );
 
-        menu.Init();
-    } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        menu.Init( );
+    } catch ( const std::exception &e ) {
+        std::cerr << "Error: " << e.what( ) << std::endl;
     }
     return 0;
 }
