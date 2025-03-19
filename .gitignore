@@ -90,6 +90,7 @@ Thumbs.db
 
 # Ignore ArgoDraft library Includes
 /DSA/include/ArgoDraft
+/Colors/include/ArgoDraft
 /NetToys/include/ArgoDraft
 /OpenGL/Imgui/include/ArgoDraft
 /OpenGL/UI-Basics/include/ArgoDraft

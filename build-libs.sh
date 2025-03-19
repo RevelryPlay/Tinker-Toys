@@ -2,7 +2,7 @@
 # copy the output compiled library (.a, .so, .dll, .dylib, etc) files to the lib directory of the project directories
 # copy the files in ArgoDraft/include directory to the project directories
 
-projectDirectories=("DSA" "NetToys" "OpenGL/Imgui" "OpenGL/UI-Basics" "Threaded")
+projectDirectories=("Colors" "DSA" "NetToys" "OpenGL/Imgui" "OpenGL/UI-Basics" "Threaded")
 isRelease=false
 
   cd ArgoDraft || exit
