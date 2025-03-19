@@ -15,7 +15,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-add_library(ArgoDraft STATIC IMPORTED)
+add_library(ArgoDraft STATIC IMPORTED
+        ../Colors/main.cpp)
 
 # Windows does not currently work with the .lib file, I was able to get it to work with the .a file
 # I will leave the .lib file commented out for now until I can get it to work

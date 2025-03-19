@@ -10,17 +10,18 @@ using namespace std;
 
 class ThreadPool {
 public:
-    explicit ThreadPool(size_t numThreads = thread::hardware_concurrency());
-    ~ThreadPool();
+    explicit ThreadPool( size_t numThreads = thread::hardware_concurrency( ) );
+    ~ThreadPool( );
 
-    void Enqueue(const std::function<void()>& task);
+    void Enqueue( const std::function< void( ) > &task );
+    bool HasTasks( ) const;
 
 private:
     // Vector to store worker threads
-    vector<thread> threads_;
+    vector< thread > threads_;
 
     // Queue of tasks
-    queue<function<void()> > tasks_;
+    queue< function< void( ) > > tasks_;
 
     // Mutex to synchronize access to shared data
     mutex queue_mutex_;
